@@ -5,6 +5,13 @@ class BinaryTree {
     }
 
     //exibe o menor valor da arvore
+    /* 
+        a variavel current recebe o valor da varivel root
+        se current for igual a null ira retornar -1 porque na tem valor ali dentro ou entao retorna null
+        caso contrario entra dentro do laço 
+        enquanto o valor da equerda for diferente de null current recebe current.left
+        quando o valor da esquerda for igual a null encerra o while e current tem o valor mais baixo
+    */
     min() {
         let current = this.root
         if (current == null)
@@ -15,6 +22,13 @@ class BinaryTree {
     }
 
     //exibe o maior valor da arvore
+     /* 
+        a variavel current recebe o valor da varivel root
+        se current for igual a null ira retornar -1 porque nao tem valor ali dentro ou entao retorna null
+        caso contrario entra dentro do laço 
+        enquanto o valor da direita for diferente de null current recebe current.left
+        quando o valor da direita for igual a null encerra o while e current tem o valor mais alto
+    */
     max() {
         let current = this.root
         if (current == null)
@@ -25,10 +39,18 @@ class BinaryTree {
     }
 
     //insere o elemento da arvores
-    insert(element) {
+    insert(element) { //recebe uma referencia do no 
         this.root = this.insertNode(this.root, element)
+        //retorna uma referencia do no
     }
-
+    //comentadio-------------------------------
+    //IMPLEMENTANDO O INSERT DA ARVORE
+    /*recebe uma referencia e insere o no
+      *ele verifica se esta nulu e insere
+      *verifica se e maior que a raiz
+      *se for ele insere na direta
+      *se nao ele insere a esquerda
+    */
     insertNode(rootNode, element) {
         if (rootNode == null)
             return new Node(element)
@@ -40,10 +62,17 @@ class BinaryTree {
     }
 
     //executa a função callback para cada nó, em ordem
+    //a funcao recebe um callback
     inOrderTraverse(callback) {
         this.inOrderVisitor(this.root, callback)
     }
+    //comentadio-------------------------------
 
+    /*verifica se o no e nulo
+     *se for nao returna nada
+     *caso contrario manda mostrar em ordem
+     *esqueda,conteudo e direita do no
+    */
     inOrderVisitor(node, callback) {
         if (node == null)
             return
@@ -56,7 +85,13 @@ class BinaryTree {
     preOrderTraverse(callback) {
         this.preOrderVisitor(this.root, callback)
     }
-
+    //recebe o no e o callback 
+    /*
+        se o no for nullo nao retorne nada
+        se nao passe o conteudo do no dentro do callback
+        e depois mostre a esquerda do no
+        e emseguida a direita do no
+    */ 
     preOrderVisitor(node, callback) {
         if (node == null)
             return
@@ -66,10 +101,17 @@ class BinaryTree {
     }
 
     //executa a função callback para cada nó, em pós-ordem
+    
     postOrderTraverse(callback) {
         this.postOrderVisitor(this.root, callback)
     }
-
+    //pos ordem recebe o metodo e a função
+    /* 
+        se o no for nullo nao retorne nada
+        se nao passe o conteudo do no dentro do callback
+        e depois mostre a esquerda do no
+        e emseguida a direita do no
+    */
     postOrderVisitor(node, callback) {
         if (node == null)
             return
@@ -102,10 +144,29 @@ class BinaryTree {
     }
 
     //remove um elemento existente na arvore o retorna
+    //manda remover e retorna a arvore atualizada
     remove(value) {
         this.root = this.removeVisitor(this.root, value)
     }
+    /* 
+        se o valor do no for igual ao valor
+        entra dentro do segundo if
+        se o lado esquerdo for igual ao lado direito retorna null
+        se o lado direito for nulo retorna o lado esquerdo
+        se o lado esquerdo for igual a null retorna o lado direito
+        e se nao atender nenhum das condições anterioores:
+            o novo no recebe o valor do lado direito
+            o current tambem recebe o mesmo valor
+            se o valor do lado esquerdo for diferemte de null
+                current recebe o valor do lado esquerdo
+                e retorna o novo no
+        se o valor de content nao for igual a value
+        e value for maior que o valor do no entra dentro do if
+        e o valor a esquerda e removido
+        caso contrario o valor da direita e removido
+        e entao retorna o no        
 
+    */
     removeVisitor(node, value) {
         if (node.content == value) {
             if (node.left == node.right) {
@@ -138,7 +199,12 @@ class BinaryTree {
     height() {
         return this.heightVisitor(this.root)
     }
-
+    /*recebe um no e por padrao e nulo
+        se o no nao for null retorna -1
+        leftHeight = verificar o tamanho da altura da esquerda
+        rightHeight = verifica o tamanho da altura da direita
+        retorna a variavel que tiver o maior valor + 1 que e a contagem do outro no
+    */
     heightVisitor(node) {
         if (!node)
             return -1
@@ -148,10 +214,17 @@ class BinaryTree {
     }
 
     // informa quantos nós existem na arvore
+    //retorna o tamamho apartir daraiz
     size() {
+
         return this.sizeVisitor(this.root)
     }
-
+/* 
+ se nao tiver no
+ retorna 0
+ se tiver
+retorna o tamanho do no da esquerda mas o tamanho do no da direita e o resultado somado 1
+*/
     sizeVisitor(node) {
         if (!node)
             return 0
