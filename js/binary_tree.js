@@ -5,6 +5,7 @@ class BinaryTree {
     }
 
     //exibe o menor valor da arvore
+       //comentadio-------------------------------
     /* 
         a variavel current recebe o valor da varivel root
         se current for igual a null ira retornar -1 porque na tem valor ali dentro ou entao retorna null
@@ -22,6 +23,7 @@ class BinaryTree {
     }
 
     //exibe o maior valor da arvore
+       //comentadio-------------------------------
      /* 
         a variavel current recebe o valor da varivel root
         se current for igual a null ira retornar -1 porque nao tem valor ali dentro ou entao retorna null
@@ -106,6 +108,7 @@ class BinaryTree {
         this.postOrderVisitor(this.root, callback)
     }
     //pos ordem recebe o metodo e a função
+       //comentadio-------------------------------
     /* 
         se o no for nullo nao retorne nada
         se nao passe o conteudo do no dentro do callback
@@ -121,6 +124,7 @@ class BinaryTree {
     }
 
     //retorna true se o valor já existe na arvore 
+       //comentadio-------------------------------
     //     Busca na árvore binária
     //    1. É nulo? o elemento não existe
     //    2. É igual ao conteúdo? achou
@@ -144,10 +148,12 @@ class BinaryTree {
     }
 
     //remove um elemento existente na arvore o retorna
+       //comentadio-------------------------------
     //manda remover e retorna a arvore atualizada
     remove(value) {
         this.root = this.removeVisitor(this.root, value)
     }
+       //comentadio-------------------------------
     /* 
         se o valor do no for igual ao valor
         entra dentro do segundo if
@@ -194,11 +200,12 @@ class BinaryTree {
         }
         return node;
     }
-
+   //comentadio-------------------------------
     //exibe a altura da arvore
     height() {
         return this.heightVisitor(this.root)
     }
+       //comentadio-------------------------------
     /*recebe um no e por padrao e nulo
         se o no nao for null retorna -1
         leftHeight = verificar o tamanho da altura da esquerda
@@ -214,11 +221,13 @@ class BinaryTree {
     }
 
     // informa quantos nós existem na arvore
+       //comentadio-------------------------------
     //retorna o tamamho apartir daraiz
     size() {
 
         return this.sizeVisitor(this.root)
     }
+ //comentadio-------------------------------
 /* 
  se nao tiver no
  retorna 0
